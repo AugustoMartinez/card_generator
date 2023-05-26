@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Generador de Tarjetas</title>
+		<link rel="stylesheet" href="./dist/style.css" />
+        <link rel="stylesheet" href="./dist/estilo_propio.css">
+        <script src="https://kit.fontawesome.com/6686988e54.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<main class="flex flex-wrap lg:flex-nowrap justify-center xl:mx-40 my-10 lg:mx-20 mx-3">
+			<form class="form border border-gray-200 rounded shadow-md p-3">
+                <div class="flex">
+                    <label for="" class="relative w-full">
+                        <span class="absolute text-xs mx-2 -mt-3 bg-white text-gray-400 px-1.5 py-1">BIN</span>
+                        <input type="text" id="bin" placeholder="xxxxxxxxxxxx" class="border-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600 " required maxlength="16"/>
+                    </label>
+                </div>
+                <div class="flex mt-3">
+                    <label for="date" class="checkbox flex flex-row content-center items-center justify-start">
+                        <input type="checkbox" name="date" id="date" value="fecha" checked/><span class="text-sm text-gray-600 ml-0.5">Fecha</span>
+                    </label>
+                    <label for="" class="relative w-full px-0.5">
+                        <span class="absolute text-xs mx-2 -mt-3 bg-white text-gray-400 px-1.5 py-1 z-20"><i class="fas fa-calendar-alt"></i> Mes</span>
+                        <select name="month" id="mes" class="border-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600 ">
+                            <option value="random" selected>Aleatorio</option>
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Abril</option>
+                            <option value="05">Mayo</option>
+                            <option value="06">Junio</option>
+                            <option value="07">Julio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                    </label>
+                    <label for="" class="relative w-full px-0.5">
+                        <span class="absolute text-xs mx-2 -mt-3 bg-white text-gray-400 px-1.5 py-1 z-20"><i class="fas fa-calendar-alt"></i> Año</span>
+                        <select name="year" id="anio" class="border-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600">
+                            <option value="random" selected>Aleatorio</option>
+                            <option value="21">2021</option>
+                            <option value="22">2022</option>
+                            <option value="23">2023</option>
+                            <option value="24">2024</option>
+                            <option value="25">2025</option>
+                            <option value="26">2026</option>
+                            <option value="27">2027</option>
+                            <option value="28">2028</option>
+                            <option value="29">2029</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="flex mt-3">
+                    <label for="cvv" class="checkbox flex flex-row content-center items-center justify-start">
+                        <input type="checkbox" name="cvv" id="cvv" value="c" checked/><span class="text-sm text-gray-600 ml-0.5">CVV</span>
+                    </label>
+                    <label for="" class="relative w-full px-0.5">
+                        <span class="absolute text-xs mx-2 -mt-3 bg-white text-gray-400 px-1.5 py-1">CVV</span>
+                        <input type="text" id="ncvv" placeholder="Si deja en blanco se genera uno aleatorio" class="border-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600 " maxlength="4">
+                    </label>
+                    <label for="" class="relative w-4/12 px-0.5">
+                        <span class="absolute text-xs mx-2 -mt-3 bg-white text-gray-400 px-1.5 py-1">Cantidad</span>
+                        <input type="number" name="" id="cantidad" max="20" min="1" class="border-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600" value="10">
+                    </label>
+                </div>
+                <div class="flex mt-3">
+                    <label for="" class="relative w-full px-0.5">
+                        <span class="absolute text-xs mx-2 -mt-3 bg-white text-gray-400 px-1.5 py-1">Formato</span>
+                        <select name="format" id="formato" class="border-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600">
+                            <option value="pipe">PIPE</option>
+                            <option value="json">JSON</option>
+                            <option value="csv">CSV</option>
+                            <option value="xml">XML</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="w-full pt-3 text-center text-base flex" id="tarjetaVisualizar">
+                    
+                </div>               
+                <div class="w-full flex justify-center mt-3">
+                    <button type="button" id="generar" class="bg-blue-600 text-white w-1/2 items-center p-2.5 rounded-md"><i class="fas fa-cog girar"></i> GENERAR</button>
+                </div>
+			</form>
+			<textarea name="" id="mostrar" class="border-2 resultado_generador mx-2 xl:my-0 my-2 border-gray-300 rounded focus:outline-none focus:border-gray-400 py-1 px-1.5 text-base w-full text-gray-600"></textarea>
+		</main>
+		<script src="./script/index.js"></script>
+	</body>
+</html>

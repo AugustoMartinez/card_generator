@@ -1,0 +1,43 @@
+.form {
+	width: 100%;
+	min-width: 250px;
+    max-width: 520px;
+}
+
+.resultado_generador {
+	width: 100%;
+	min-width: 250px;
+    max-width: 520px;
+	resize: none;
+    height: auto;
+    min-height: 200px;
+}
+#anio:disabled{
+	z-index: 10;
+}
+#mes:disabled{
+	z-index: 10;
+}
+.checkbox {
+	min-width: 60px;
+}
+.girar {
+	animation: rotar 2s infinite linear;
+	-webkit-animation: rotar 2s infinite linear;
+}
+@keyframes rotar {
+	0% {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+	}
+    100%{
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+}
+}
